@@ -87,8 +87,10 @@ def get_input():
 def on_close():
     if hit1 > hit2:
         winner.append(player1[0])
-    else:
+    elif hit2 > hit1:
         winner.append(player2[0])
+    else:
+        winner.append("Draw")
     attacking.quit()
     attacking.destroy()
 
@@ -231,6 +233,9 @@ winscreen.geometry("500x400")
 
 winscreen.configure(bg="green")
 
-win_label = Label(winscreen, text=f"Congratulations! {winner[0]} won!", font=("Arial", 16), anchor="center").grid(row=10, column=10)
-
+if winner[0] != "Draw":
+    win_label = Label(winscreen, text=f"Congratulations! {winner[0]} won!", font=("Arial", 16), anchor="center")
+else:
+    win_label = Label(winscreen, text=f"The game ended in a draw!", font=("Arial", 16), anchor="center")
+win_label.pack()
 mainloop()
