@@ -1,5 +1,5 @@
 from tkinter import *
-
+import random
 
 # - Functions
 def on_button_click_1(r, c):
@@ -94,9 +94,22 @@ def on_close():
     attacking.quit()
     attacking.destroy()
 
+def on_close_2():
+    window = random.choices(["lajshasd", "Asdasjhdad", "asldhasld", "asdhaskdh", "akjhsdkajhd", "lasjdh"])
+    window = Tk()
+    window.geometry("4000x4000")    
+    return
+
+def on_complete_loss():
+    root = Tk()
+    root.geometry("4000x4000")
+
+    root.protocol("WM_DELETE_WINDOW", on_close_2)
+
 # - Variables
 ships = [2, 3, 3, 5]
 
+troll = False
 
 ships1 = []
 ships2 = []
@@ -224,7 +237,9 @@ for i in range(10):
 
 mainloop()
 
-
+if troll:
+    if hit1 or hit2 == 0:
+        on_complete_loss()
 
 winscreen = Tk()
 
