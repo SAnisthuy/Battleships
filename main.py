@@ -82,7 +82,7 @@ class BattleShips:
             self.attacking.destroy()
         
         self.turn = False
-
+#change
     def attacking2(self, r, c):
         if self.turn:
             return
